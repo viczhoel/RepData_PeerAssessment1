@@ -47,6 +47,7 @@ sum(is.na(activity))
 ```
 
 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
+
 *The mean of 5-minute interval steps (which is calculated before) is used to fill in the missing values.*
 ```{r stepsMean}
 activity <- merge(activity, stepsInterval, by = "interval", suffixes = c("", ".mean"))

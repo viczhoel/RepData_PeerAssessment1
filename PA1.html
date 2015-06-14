@@ -111,8 +111,9 @@ plot(stepsInterval, type=&quot;l&quot;)</code></pre>
 <pre class="r"><code>sum(is.na(activity))</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc. <em>The mean of 5-minute interval steps (which is calculated before) is used to fill in the missing values.</em></li>
+<li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.</li>
 </ol>
+<p><em>The mean of 5-minute interval steps (which is calculated before) is used to fill in the missing values.</em></p>
 <pre class="r"><code>activity &lt;- merge(activity, stepsInterval, by = &quot;interval&quot;, suffixes = c(&quot;&quot;, &quot;.mean&quot;))
 activity$steps[is.na(activity$steps)] &lt;- activity$steps.mean[is.na(activity$steps)]</code></pre>
 <ol start="3" style="list-style-type: decimal">
